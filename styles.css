@@ -16,9 +16,8 @@
   background: var(--paper);
   font-synthesis: none;
 }
-/* Dark: the device's setting, unless Paper was chosen on the page. */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-look="light"]) {
+  :root {
     --paper: #171c1d;
     --sheet: #22292b;
     --ink: #f1f3ef;
@@ -29,18 +28,6 @@
     --corner: 12px;
   }
 }
-:root[data-look="dark"] {
-  color-scheme: dark;
-  --paper: #171c1d;
-  --sheet: #22292b;
-  --ink: #f1f3ef;
-  --muted: #afbbb7;
-  --rule: #465351;
-  --thread: #d6a1ba;
-  --bead: #b98aa2;
-  --corner: 12px;
-}
-:root[data-look="light"] { color-scheme: light; }
 * { box-sizing: border-box; }
 body { margin: 0; font-size: 1.0625rem; line-height: 1.6; }
 a { color: var(--ink); text-underline-offset: .22em; overflow-wrap: anywhere; }
@@ -96,20 +83,11 @@ p:last-child { margin-bottom: 0; }
 .opening { grid-column: 2; padding: 1.4rem 12% 0 0; }
 .row .opening .words { font-family: var(--serif); font-size: 1.45rem; line-height: 1.3; color: var(--ink); margin-bottom: 1.6rem; }
 .row .opening .action { font-weight: 600; font-size: 1.15rem; line-height: 1.7rem; color: var(--ink); }
-/* From the style guide: the look switch, real screens, and the ten cupboards. */
+/* From the style guide: real screens and the ten cupboards. */
 .screens, .cupboards { border-top: 1px solid var(--rule); padding-block: 2.2rem 1rem; margin-top: 2rem; }
-.switches { display: flex; flex-wrap: wrap; gap: .8rem 1.4rem; margin-bottom: 1.4rem; font-size: .85rem; }
-.switches[hidden] { display: none; }
-.switches > div { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
-.switch-label { color: var(--muted); }
-.seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--muted); border-radius: 6px; overflow: hidden; }
-.seg button { border: 0; background: transparent; color: var(--ink); padding: .5rem .7rem; font: 500 .82rem var(--sans); cursor: pointer; min-height: 2.2rem; }
-.seg button + button { border-left: 1px solid var(--rule); }
-.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
-.seg button:focus-visible { outline-offset: -3px; }
 .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .shot { margin: 0; }
-.shot a { display: block; border: 5px solid #111; border-radius: 22px; overflow: hidden; background: #111; }
+.shot .frame { display: block; border: 5px solid #111; border-radius: 22px; overflow: hidden; background: #111; }
 .shot img { display: block; width: 100%; height: auto; }
 .shot figcaption { font-size: .82rem; color: var(--muted); margin-top: .4rem; }
 .icons { list-style: none; margin: 1.2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.6rem .8rem; }
@@ -153,7 +131,7 @@ footer nav a { padding-block: 0; }
   .row .opening .words { font-size: 1.3rem; }
   .summary { padding: 1.2rem; }
   .shots { gap: .6rem; }
-  .shot a { border-width: 3px; border-radius: 14px; }
+  .shot .frame { border-width: 3px; border-radius: 14px; }
   .icons { grid-template-columns: repeat(2, 1fr); }
 }
 @media print {
