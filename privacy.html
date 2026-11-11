@@ -18,66 +18,63 @@
     <article class="reading policy">
       <p class="eyebrow">Your notebook, your choices</p>
       <h1>Privacy, in plain words.</h1>
-      <p class="intro">Your notebook is stored on your device. AI is optional, and using it sends information to the provider you choose. Here’s what that means.</p>
-      <p class="small">Effective September 24, 2026 · Cupboards 1.0.5 (10) and later</p>
+      <p class="intro">Your notebook is kept on your phone. When Cupboards asks for an AI reply, your message and the notes it needs go to Google. Here’s what that means.</p>
+      <p class="small">Effective November 10, 2026 · Cupboards 1.8.0 (34) and later</p>
       <div class="summary" aria-label="Privacy summary">
         <ul>
           <li><strong>Local notebook.</strong> Cupboards does not run a server that stores your notebook.</li>
-          <li><strong>Optional AI.</strong> With your permission, submitted words and relevant context go directly to Anthropic, OpenAI or Google Gemini.</li>
-          <li><strong>Separate copies.</strong> Provider records, exports, device backups and messages you send to support have their own storage and deletion rules.</li>
+          <li><strong>AI replies from Google.</strong> AI replies are built in. Each request goes through the developer’s Firebase project to Google’s Vertex AI in the United States. Google does not keep it after replying.</li>
+          <li><strong>Separate copies.</strong> Exports, backups of your phone and messages you send to support have their own storage and deletion rules.</li>
         </ul>
       </div>
-      <nav class="toc" aria-label="Privacy sections"><a href="#notebook">On your device</a><a href="#ai">AI sharing</a><a href="#health">Apple Health</a><a href="#controls">Your controls</a><a href="#support">Support &amp; website</a></nav>
+      <nav class="toc" aria-label="Privacy sections"><a href="#notebook">On your device</a><a href="#ai">AI replies</a><a href="#health">Apple Health</a><a href="#controls">Your controls</a><a href="#support">Support &amp; website</a></nav>
 
       <section id="notebook">
         <h2>What stays in your notebook</h2>
-        <p>Cupboards stores your starting-point answers, focus, reflections, conversations, unsent drafts, narrative entries, practices, check-ins, saved insights and exploration history on your device. This includes AI responses and summaries you receive. Safety checks can also save a local record that help was offered, including a short excerpt of the text that triggered the check. These records can be included in notebook exports. Settings and provider permissions are stored locally too.</p>
-        <p>There is no Cupboards account or developer-operated notebook cloud service. The developer cannot open your notebook remotely. The app does not include advertising or a third-party analytics SDK.</p>
-        <p>Your API keys are stored separately in the device’s Keychain. They are sent to the matching provider to authenticate your requests, not included in notebook exports.</p>
-        <p>Local storage does not mean information can never leave your device: AI requests, exports and support messages are described below. Your device or computer backups may also include app data, depending on your backup settings. Cupboards does not manage those backups.</p>
+        <p>Cupboards stores your starting-point answers, focus, reflections, conversations, unsent drafts, narrative entries, practices, check-ins, saved insights and exploration history on your device. This includes AI responses and summaries you receive. Safety checks can also save a local record that help was offered, including a short excerpt of the text that triggered the check. These records can be included in notebook exports. Settings are stored locally too.</p>
+        <p>There is no Cupboards account or developer-operated notebook cloud service. The developer cannot open your notebook remotely. The app does not include advertising or a third-party analytics SDK. It includes Google’s Firebase software to send AI requests and to confirm the app is genuine, as described below.</p>
+        <p>Your notebook is part of your phone’s backups. If you back up your phone to iCloud or to a computer, the notebook is included, and it stays in older backups after you delete it in the app. Your Apple backup settings manage those backups; Cupboards does not.</p>
+        <p>On a phone with a passcode, the notebook is protected by the phone’s passcode encryption, along with the rest of the app’s data. You can also lock Cupboards itself with Face ID or your passcode in Settings → Lock.</p>
+        <p>Local storage does not mean information can never leave your phone: AI requests, exports and support messages are described below.</p>
       </section>
 
       <section id="ai">
-        <h2>When you use AI</h2>
-        <p>You choose a provider, supply your own API key, and allow sharing with that provider. Requests travel directly from the app to that provider over HTTPS, not through a Cupboards server.</p>
+        <h2>When Cupboards asks for an AI reply</h2>
+        <p>AI replies are part of Cupboards. There is no key to add, no provider to choose and no switch that turns AI off. Requests travel over HTTPS from the app, through a Firebase project run by the app’s developer, to Google’s Vertex AI Gemini API. Cupboards has no servers of its own. Requests are processed in the United States. Inside the app, Google is called “our provider.”</p>
+        <p>Each request also carries a Firebase App Check token. It uses Apple’s App Attest, or DeviceCheck on phones without it, to confirm that the request comes from a genuine copy of Cupboards.</p>
         <p>A request can contain your submitted text and the context used by that feature: your focus, conversation messages, selected notebook material, reflection summaries, saved insights, narrative or practice information. Starting-point AI uses the answers you submit. AI-generated openings, follow-up questions, summaries and practices also make requests, sometimes without a new message from you.</p>
-        <p>Individual cupboard conversations can use your current focus, explicitly kept insights, that cupboard’s conversation and up to five recent mood check-ins from the past seven days in that exploration, plus the specific check-in you choose to explore with Go deeper. Mood check-ins contain the feeling, optional activity tag and time you recorded them. Saving a check-in does not make an AI request. Conversation guidance can also include your exploration phase, communication preference, time since your last visit, whether a previous crisis was detected and a prior session’s recorded overwhelm outcome. Optional sleep and exercise context is described below. Other features can use different notebook context. Unsent chat drafts are not submitted as chat messages.</p>
+        <p>Individual cupboard conversations can use your current focus, explicitly kept insights, that cupboard’s conversation and up to five recent mood check-ins from the past seven days in that exploration, plus the specific check-in you choose to explore with Go deeper. Mood check-ins contain the feeling, optional activity tag and time you recorded them. Saving a check-in does not make an AI request. Conversations can also include your most recent Wellbeing Check or Mood and Anxiety Check result from the past two weeks, and the result of a check you took in that conversation. Conversation guidance can also include your exploration phase, communication preference, time since your last visit, whether a previous crisis was detected and a prior session’s recorded overwhelm outcome. Optional sleep and exercise context is described below. Other features can use different notebook context. Unsent chat drafts are not submitted as chat messages.</p>
         <p>Optional mood reminders are scheduled on your device within your chosen hours. Notification permission is requested when you enable them. Notifications do not contain your feelings, focus or activity. You can turn reminders off in the app or iOS Settings. No push-notification server is used.</p>
-        <p>Your provider also receives connection and account information needed to handle the request, such as your IP address and API authentication. The developer does not receive a copy of these requests through a Cupboards backend.</p>
-        <p>Provider retention, safety review and model-training rules depend on the provider’s terms, service and account settings. Cupboards does not guarantee zero retention or erase provider-held records when you delete local notes. Check the terms for the account you use:</p>
-        <p>Keep optional provider model-training or data-sharing programs off when using personal notebook or Health information.</p>
-        <ul>
-          <li><a href="https://www.anthropic.com/legal/commercial-terms">Anthropic commercial terms</a> and <a href="https://platform.claude.com/docs/en/manage-claude/api-and-data-retention">API data retention</a>.</li>
-          <li><a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI API data controls</a>. Cupboards requests <code>store: false</code>; this is not a guarantee that no safety or operational logs are retained.</li>
-          <li><a href="https://ai.google.dev/gemini-api/terms">Google Gemini API terms</a>. Cupboards requires you to confirm active billing for your key’s project. The app cannot verify this itself. Do not use unpaid Gemini access for personal information.</li>
-        </ul>
-        <p>You can leave AI disconnected and use local onboarding, read saved material and write local entries. Features that generate AI responses require an internet connection and provider access.</p>
+        <p>Google also receives the connection information needed to handle the request, such as your IP address.</p>
+        <p>Google does not keep your messages after it replies. Google approved zero data retention and an abuse-monitoring exception on November 3, 2026. A request already sent cannot be recalled.</p>
+        <p>Without an internet connection you can still read your notebook and save local entries. Features that get AI replies need a connection.</p>
       </section>
 
       <section id="health">
         <h2>Apple Health is optional</h2>
-        <p>If you connect Apple Health, Cupboards requests read access to sleep, mindful sessions, resting heart rate, active energy, exercise time and steps. On supported systems it also requests State of Mind data. You choose which categories to allow. Cupboards does not write records to Apple Health.</p>
-        <p>Health information can help show context and fill parts of local check-ins. Values derived from Health can be saved in those check-ins and included in notebook exports.</p>
-        <p><strong>Optional AI context:</strong> connecting Health does not grant permission to share it with AI. In Settings, you can separately allow sleep and exercise sharing with the selected provider. This starts off. When enabled, wellbeing reflections and practices can include total sleep duration from last night and total exercise minutes from the last seven days. Other Health readings and raw records are not automatically included. Missing readings are not treated as zero.</p>
+        <p>If you connect Apple Health, Cupboards asks to read your sleep and exercise minutes. You choose what to allow. Cupboards does not write to Apple Health.</p>
+        <p>Cupboards uses these readings to fill in the sleep and movement basics in your check-in. Values derived from Health can be saved in those check-ins and included in notebook exports.</p>
+        <p><strong>Optional AI context:</strong> connecting Health does not grant permission to share it with AI. In Settings, you can separately allow sleep and exercise sharing. This starts off. When enabled, requests to Google for wellbeing reflections and practices can include total sleep duration from last night and total exercise minutes from the last seven days. No other Health readings are sent. Missing readings are not treated as zero.</p>
         <p>You can inspect the summary in Settings and the context prepared for a cupboard conversation in its context section. Turning sharing off prevents these automatic summaries from being added to new requests and retries. It cannot recall requests already sent or remove Health details mentioned in earlier user messages, AI replies or saved notes that you subsequently share.</p>
-        <p>You can disconnect Health in Cupboards and manage or revoke the app’s access in Apple Health or iOS Settings. Revoking access does not erase previously saved check-ins, exports or information already sent to a provider.</p>
+        <p>You can disconnect Health in Cupboards and manage or revoke the app’s access in Apple Health or iOS Settings. Revoking access does not erase previously saved check-ins, exports or information already sent for an AI reply.</p>
       </section>
 
       <section id="controls">
         <h2>Your controls and separate copies</h2>
         <ul>
-          <li><strong>Stop AI sharing.</strong> In Settings → AI Connection, select each provider you want to disable and turn off Allow sharing. This stops new requests and retries to that provider, but cannot recall information already sent.</li>
-          <li><strong>Remove a key.</strong> Use Remove Key for the selected provider. To invalidate the credential everywhere, revoke it with the provider too.</li>
-          <li><strong>Export.</strong> Settings → Data Management → Export Data creates a password-protected, encrypted notebook export. You choose where to save or share it. The exported file is a separate copy under your control.</li>
-          <li><strong>Delete.</strong> Delete All Data erases notebook records held by the app. API keys and provider preferences are separate; manage them in AI Connection. Archiving an exploration is not deletion.</li>
+          <li><strong>AI replies.</strong> This version has no switch that turns AI off. Sending a message makes a request. So do AI-written openings, follow-up questions, summaries and practices, sometimes without a new message from you. Drafts you haven’t sent stay on your phone.</li>
+          <li><strong>Sleep and exercise.</strong> Settings → Apple Health → Share sleep and exercise is off unless you choose it. Turn it off to stop adding these summaries to new requests.</li>
+          <li><strong>Lock.</strong> Settings → Lock asks for Face ID or your passcode when Cupboards opens.</li>
+          <li><strong>Export.</strong> Settings → Data management → Export data creates a password-protected, encrypted notebook export. You choose where to save or share it. The exported file is a separate copy under your control.</li>
+          <li><strong>Delete.</strong> Delete all data erases notebook records held by the app. Archiving an exploration is not deletion.</li>
         </ul>
-        <p>Notebook records remain until you delete them. Deleting them does not delete files you exported, older device backups, support correspondence or records retained by Apple or an AI provider. Manage those copies with the service or location that holds them.</p>
-        <p>Device security and HTTPS help protect information, but no device or online service can guarantee absolute security. Protect your device, keys and export password, and avoid submitting information you do not want processed by a provider.</p>
+        <p>Notebook records remain until you delete them. Deleting them does not delete files you exported, older backups of your phone, support correspondence or records retained by Apple. Manage those copies with the service or location that holds them.</p>
+        <p>Device security and HTTPS help protect information, but no device or online service can guarantee absolute security. Protect your phone and export password, and avoid submitting information you do not want sent for an AI reply.</p>
       </section>
 
       <section id="support">
         <h2>When you contact support</h2>
-        <p>Email goes to <a href="mailto:cupboards.support@gmail.com">cupboards.support@gmail.com</a>, managed by the app’s developer using Gmail. Your address, message and any attachments are received by the developer and processed by Google’s email service. Please send only the details needed to explain the issue, never API keys or a full notebook export.</p>
+        <p>Email goes to <a href="mailto:cupboards.support@gmail.com">cupboards.support@gmail.com</a>, managed by the app’s developer using Gmail. Your address, message and any attachments are received by the developer and processed by Google’s email service. Please send only the details needed to explain the issue, never a full notebook export.</p>
         <p>Support correspondence is used to answer requests and investigate problems. It is kept only as long as needed to resolve the request, handle related follow-up, and meet applicable legal obligations. You can ask for deletion at the same address; this does not erase copies held in your own mailbox or other services.</p>
         <p>When you test through TestFlight, Apple automatically collects crash logs and usage information and shares them with the developer. These can include device details, session counts and your invitation email. Feedback you choose to send, including screenshots and comments, is also shared. This information is used to investigate issues and improve Cupboards, with the retention approach above applying to developer-held beta support records. Apple prohibits developers from sharing TestFlight information onward with third parties and controls its own retention. See <a href="https://www.apple.com/legal/privacy/data/en/test-flight/">Apple’s TestFlight privacy information</a>. Do not include private notebook content in feedback.</p>
         <h3>This website</h3>
