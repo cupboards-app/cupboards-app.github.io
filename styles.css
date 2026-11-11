@@ -1,13 +1,13 @@
-/* Cupboards: the app's six notebook colors (The fitted room), in both looks. */
+/* Cupboards: the app's six notebook colors (Chalk and mulberry), in both looks. */
 :root {
   color-scheme: light dark;
-  --paper: #e7eee9;
-  --sheet: #f5f8f5;
-  --ink: #243d35;
-  --muted: #566b62;
-  --rule: #bfcdc5;
-  --thread: #7a2e3e;
-  --bead: #9a4b5a;
+  --paper: #f2f3f1;
+  --sheet: #fcfcf9;
+  --ink: #252b2d;
+  --muted: #5e6868;
+  --rule: #ccd2cf;
+  --thread: #743c58;
+  --bead: #93607a;
   --corner: 3px;
   --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
   --serif: "New York", ui-serif, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
@@ -16,18 +16,31 @@
   background: var(--paper);
   font-synthesis: none;
 }
+/* Dark: the device's setting, unless Paper was chosen on the page. */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #182a25;
-    --sheet: #22392f;
-    --ink: #e7eee9;
-    --muted: #a9bdb4;
-    --rule: #2e463e;
-    --thread: #e69ab0;
-    --bead: #c77a90;
+  :root:not([data-look="light"]) {
+    --paper: #171c1d;
+    --sheet: #22292b;
+    --ink: #f1f3ef;
+    --muted: #afbbb7;
+    --rule: #465351;
+    --thread: #d6a1ba;
+    --bead: #b98aa2;
     --corner: 12px;
   }
 }
+:root[data-look="dark"] {
+  color-scheme: dark;
+  --paper: #171c1d;
+  --sheet: #22292b;
+  --ink: #f1f3ef;
+  --muted: #afbbb7;
+  --rule: #465351;
+  --thread: #d6a1ba;
+  --bead: #b98aa2;
+  --corner: 12px;
+}
+:root[data-look="light"] { color-scheme: light; }
 * { box-sizing: border-box; }
 body { margin: 0; font-size: 1.0625rem; line-height: 1.6; }
 a { color: var(--ink); text-underline-offset: .22em; overflow-wrap: anywhere; }
@@ -83,7 +96,7 @@ p:last-child { margin-bottom: 0; }
 .opening { grid-column: 2; padding: 1.4rem 12% 0 0; }
 .row .opening .words { font-family: var(--serif); font-size: 1.45rem; line-height: 1.3; color: var(--ink); margin-bottom: 1.6rem; }
 .row .opening .action { font-weight: 600; font-size: 1.15rem; line-height: 1.7rem; color: var(--ink); }
-/* From the style guide: the palette and look switch, real screens, and the ten cupboards. */
+/* From the style guide: the look switch, real screens, and the ten cupboards. */
 .screens, .cupboards { border-top: 1px solid var(--rule); padding-block: 2.2rem 1rem; margin-top: 2rem; }
 .switches { display: flex; flex-wrap: wrap; gap: .8rem 1.4rem; margin-bottom: 1.4rem; font-size: .85rem; }
 .switches[hidden] { display: none; }
